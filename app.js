@@ -12,7 +12,12 @@ app.use(bodyParser.json());
 
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
-
+// const hbs = exphbs.create({
+//   extname: '.hbs',
+//   runtimeOptions: {
+//       allowProtoPropertiesByDefault: true,
+//       allowProtoMethodsByDefault: true
+//   }});
 // Set up Handlebars as the view engine
 app.engine('hbs', exphbs.engine({ extname: '.hbs' })); // Use exphbs.engine() for latest versions
 app.set('view engine', 'hbs');
