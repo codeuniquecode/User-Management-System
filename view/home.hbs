@@ -15,22 +15,26 @@
   <tbody>
     {{#each users}}
     <tr>
-      <th scope="row"></th>
-      <td>{{this.id}}</td>
-      <td>{{this.Fullname}}</td>
-      <td>{{this.Email}}</td>
-      <td>{{this.Password}}</td>
-      <td>{{this.Phone}}</td>
-      <td>{{this.comments}}</td>
-       <td>{{this.status}}</td>
-        <td>{{this.role}}</td>
+      <th scope="row">{{id}}</th> <!-- User ID should be in the <th> -->
+      <td>{{Fullname}}</td>
+      <td>{{Email}}</td>
+      <td>{{Password}}</td>
+      <td>{{Phone}}</td>
+      <td>{{comments}}</td>
+      <td>{{status}}</td>
+      <td>{{role}}</td>
       <td>
-        <a href="#" type="button" class="btn btn-small btn-light"><i class="bi bi-eye"></i>View</a>
-        <a href="#" type="button" class="btn btn-small btn-light"><i class="bi bi-pencil"></i>Edit</a>
-        <a href="#" type="button" class="btn btn-small btn-light"><i class="bi bi-trash"></i>Delete</a>
+        <a href="#" type="button" class="btn btn-small btn-light">
+          <i class="bi bi-eye"></i>View
+        </a>
+        <a href="#" type="button" class="btn btn-small btn-light">
+          <i class="bi bi-pencil"></i>Edit
+        </a>
+        <a href="#" type="button" class="btn btn-small btn-light">
+          <i class="bi bi-trash"></i>Delete
+        </a>
       </td>
     </tr>
     {{/each}}
-  
   </tbody>
 </table>

@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controller/userController');
 
+// Define the route for rendering the home page and showing all users
+router.get('/', userController.view);  // Calls the 'view' method to render users
 
-router.get('/', userController.view);
-router.get('/', (req, res) => {
-    res.render('home'); // Render the 'home.hbs' template
-  });
+// Define the route for searching users
+router.post('/search', userController.find);  // Calls the 'find' method to handle search
 
-module.exports = router; //must export routers
+module.exports = router;
