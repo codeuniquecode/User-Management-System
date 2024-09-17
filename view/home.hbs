@@ -16,13 +16,13 @@
     {{#each users}}
     <tr>
       <th scope="row">{{id}}</th> <!-- User ID should be in the <th> -->
-      <td>{{Fullname}}</td>
-      <td>{{Email}}</td>
-      <td>{{Password}}</td>
-      <td>{{Phone}}</td>
-      <td>{{comments}}</td>
-      <td>{{status}}</td>
-      <td>{{role}}</td>
+      <td>{{this.Fullname}}</td>
+      <td>{{this.Email}}</td>
+      <td>{{this.Password}}</td>
+      <td>{{this.Phone}}</td>
+      <td>{{this.comments}}</td>
+      <td>{{this.status}}</td>
+      <td>{{this.role}}</td>
       <td>
         <a href="#" type="button" class="btn btn-small btn-light">
           <i class="bi bi-eye"></i>View

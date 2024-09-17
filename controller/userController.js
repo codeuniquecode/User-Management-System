@@ -3,6 +3,7 @@ const { Where } = require('sequelize/lib/utils');
 const {User} = require('../model/index');
 const { where } = require('sequelize');
 const {Op} = require('sequelize');
+const { create } = require('express-handlebars');
 // const User = require('../model/userModel');
 exports.view = async (req,res)=>{
     try {
@@ -48,4 +49,23 @@ exports.find = async (req,res)=>{
     catch(e){
         console.log('Error finding user',e);
     }
+}
+exports.userR = (req,res)=>{
+    res.render('register');
+}
+exports.userRegister = async(req,res)=>{
+    const {fname , email, password , comment, phone} = req.body;
+    try{
+        await User.create({
+            Fullname: fname,
+            Email : email,
+            Password : password,
+            Phone: phone,
+            comments : comment
+        });
+        res.render('login',{alert: 'Registered Succesfully, Please Login'});
+}
+catch(e){
+    console.log('error in registering',e);
+}
 }
