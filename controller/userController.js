@@ -96,10 +96,25 @@ exports.userEdit = async(req,res) =>{
             where : {id : userId}
         }
     ); 
-    res.redirect('/');
-    // res.render('home', { alert: 'Updated Successfully' });
+    res.render('edit', { alert: 'Updated Successfully' });
     }
     catch (e) {
         console.log('error in registering', e);
+    }
+}
+//end
+//delete operation
+exports.userDelete = async (req,res)=>{
+    const userId = req.params.id;
+    try{
+        console.time('deleteTime'); // Start timing
+        await User.destroy({
+            where: { id: userId }
+        });
+        console.timeEnd('deleteTime'); // End timing
+        res.redirect('/');
+    }
+    catch(e){
+        console.log('error in deleting user',e);
     }
 }

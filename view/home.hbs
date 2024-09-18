@@ -1,9 +1,4 @@
-  {{#if alert}}
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong> {{alert}} </strong>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    {{/if}}
-  </div>
+
 
 <table class="table">
   <thead>
@@ -37,7 +32,7 @@
         <a href="/edit/{{id}}" type="button" class="btn btn-small btn-light">
           <i class="bi bi-pencil"></i>Edit
         </a>
-        <a href="#" type="button" class="btn btn-small btn-light">
+        <a href="/delete/{{id}}" type="button" class="btn btn-small btn-light">
           <i class="bi bi-trash"></i>Delete
         </a>
       </td>

@@ -11,4 +11,5 @@ router.get('/register', userController.userR);
 router.post('/userRegister', userController.userRegister);
 router.get('/edit/:id', userController.userE);
 router.post('/edit/:id', userController.userEdit);
+router.get('/delete/:id', userController.userDelete);
 module.exports = router;

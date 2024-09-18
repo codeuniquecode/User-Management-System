@@ -1,4 +1,10 @@
 <h1>Edit User</h1>
+  {{#if alert}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong> {{alert}} </strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    {{/if}}
+  </div>
 <form action="/edit/{{user.id}}" method="post">
    <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
