@@ -1,0 +1,31 @@
+<div class="mb-3"></div>
+{{!-- email --}}
+<label for="exampleInputEmail1" class="form-label">Email address</label>
+<input type="email" name="email" value="{{user.Email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
+{{!-- fullname --}}
+<div class="mb-3">
+    <label class="form-label">Fullname</label>
+    <input type="text" name="fname" value="{{user.Fullname}}" class="form-control">
+</div>
+
+{{!-- password--}}
+<div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="password" value="{{user.Password}}" class="form-control">
+</div>
+
+{{!-- phone --}}
+<div class="mb-3">
+    <label class="form-label">Phone</label>
+    <input type="text" name="phone" value="{{user.Phone}}" class="form-control">
+</div>
+
+{{!-- comment--}}
+<div class="mb-3"></div>
+<label class="form-label">comment</label>
+<input type="text" name="comment" value="{{user.comments}}" class="form-control">
+</div>
+
+<button type="submit" class="btn btn-primary text-center">Submit</button>

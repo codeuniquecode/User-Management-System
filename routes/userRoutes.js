@@ -9,4 +9,6 @@ router.get('/', userController.view);  // Calls the 'view' method to render user
 router.post('/search', userController.find);  // Calls the 'find' method to handle search
 router.get('/register', userController.userR);
 router.post('/userRegister', userController.userRegister);
+router.get('/edit/:id', userController.userE);
+router.post('/edit/:id', userController.userEdit);
 module.exports = router;

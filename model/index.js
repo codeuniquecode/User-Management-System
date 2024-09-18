@@ -26,7 +26,7 @@ db.User = User;
 sequelize.sync({force:false}).then(()=>{
     console.log('sync successful');
 }).catch(e=>{
-    console.log('error in sync db',err);
+    console.log('error in sync db',e);
 })
 module.exports = sequelize;
 module.exports = db;
