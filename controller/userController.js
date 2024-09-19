@@ -64,25 +64,25 @@ exports.userRegister = async (req, res) => {
     }
 }
 //end
-exports.userE = async (req,res) =>{
+exports.userE = async (req, res) => {
     const userId = req.params.id;
-    try{
+    try {
         const user = await User.findOne({
-            where:{id : userId}
+            where: { id: userId }
         });
-        if(user){
-            res.render('edit',{user:user.dataValues});
+        if (user) {
+            res.render('edit', { user: user.dataValues });
         }
-        else{
+        else {
             res.status(404).send('user not found');
         }
     }
-    catch(e){
-        console.log('error finding user data',e);
+    catch (e) {
+        console.log('error finding user data', e);
     }
 }
 // edit operation
-exports.userEdit = async(req,res) =>{
+exports.userEdit = async (req, res) => {
     const userId = req.params.id;
     const { fname, email, password, comment, phone } = req.body;
     try {
@@ -92,11 +92,11 @@ exports.userEdit = async(req,res) =>{
             Password: password,
             Phone: phone,
             comments: comment
-        },{
-            where : {id : userId}
+        }, {
+            where: { id: userId }
         }
-    ); 
-    res.render('edit', { alert: 'Updated Successfully' });
+        );
+        res.render('edit', { alert: 'Updated Successfully' });
     }
     catch (e) {
         console.log('error in registering', e);
@@ -104,9 +104,9 @@ exports.userEdit = async(req,res) =>{
 }
 //end
 //delete operation
-exports.userDelete = async (req,res)=>{
+exports.userDelete = async (req, res) => {
     const userId = req.params.id;
-    try{
+    try {
         console.time('deleteTime'); // Start timing
         await User.destroy({
             where: { id: userId }
@@ -114,7 +114,47 @@ exports.userDelete = async (req,res)=>{
         console.timeEnd('deleteTime'); // End timing
         res.redirect('/');
     }
-    catch(e){
-        console.log('error in deleting user',e);
+    catch (e) {
+        console.log('error in deleting user', e);
     }
 }
+exports.userL = async (req, res) => {
+    res.render('login');
+}
+exports.userLogin = async (req, res) => {
+    const { email, password } = req.body;  // Get email and password from the request body
+
+    console.log(email, password);  // Log to check the input
+
+    // Check if email or password is missing
+    if (!email || !password) {
+        return res.send('Please enter both email and password to login');
+    }
+
+    try {
+        // Fetch user by email
+        const user = await User.findOne({
+            where: {
+                Email: email
+            }
+        });
+
+        // Check if the user exists
+        if (!user) {
+            return res.send('Email not found');
+        }
+
+        // Now compare the password with the stored password
+        if (user.Password === password) {
+            // Successful login
+            res.send('Login successful');
+        } else {
+            // Invalid password
+            res.send('Invalid credentials');
+        }
+
+    } catch (e) {
+        console.log('Error in finding user', e);
+        res.status(500).send('Server error');
+    }
+};

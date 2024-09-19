@@ -12,4 +12,6 @@ router.post('/userRegister', userController.userRegister);
 router.get('/edit/:id', userController.userE);
 router.post('/edit/:id', userController.userEdit);
 router.get('/delete/:id', userController.userDelete);
+router.get('/login', userController.userL);
+router.post('/userLogin',userController.userLogin);
 module.exports = router;
