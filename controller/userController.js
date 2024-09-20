@@ -112,7 +112,7 @@ exports.userDelete = async (req, res) => {
             where: { id: userId }
         });
         console.timeEnd('deleteTime'); // End timing
-        res.redirect('/');
+        res.redirect('/home');
     }
     catch (e) {
         console.log('error in deleting user', e);
@@ -147,7 +147,13 @@ exports.userLogin = async (req, res) => {
         // Now compare the password with the stored password
         if (user.Password === password) {
             // Successful login
-            res.send('Login successful');
+            if(user.role === 'Admin'){
+                res.redirect('/home');
+                // res.send('admin here');
+            }
+            else{
+            res.send('User Login successful');
+            }
         } else {
             // Invalid password
             res.send('Invalid credentials');
