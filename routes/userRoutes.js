@@ -8,6 +8,7 @@ router.get('/home',userController.view);
 // Define the route for searching users
 router.post('/search', userController.find);  // Calls the 'find' method to handle search
 // router.get('/register', userController.userR);
+router.get('/user-data/:id', userController.userData);
 router.post('/userRegister', userController.userRegister);
 router.get('/edit/:id', userController.userE);
 router.post('/edit/:id', userController.userEdit);

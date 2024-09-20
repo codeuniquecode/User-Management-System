@@ -152,7 +152,9 @@ exports.userLogin = async (req, res) => {
                 // res.send('admin here');
             }
             else{
-            res.send('User Login successful');
+                res.redirect(`/user-data/${user.id}`);
+            // res.render('user-data',{id : user.id});
+            // res.send('User Login successful');
             }
         } else {
             // Invalid password
@@ -164,3 +166,21 @@ exports.userLogin = async (req, res) => {
         res.status(500).send('Server error');
     }
 };
+exports.userData = async (req,res)=>{
+    const id = req.params.id;
+    try{
+        const user = await User.findOne({
+            where:{
+                id : id
+            }
+        })      // Convert the Sequelize instance to plain object
+        const plainUser = user.get({ plain: true });
+
+        // Pass the plain user data to the view
+        res.render('user-data', { user: plainUser });
+    }
+catch(e){
+    console.log('error in finding user',e);
+    
+}
+}

@@ -1,35 +1,40 @@
 <h1>Edit User</h1>
-  {{#if alert}}
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong> {{alert}} </strong>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    {{/if}}
-  </div>
-<form action="/edit/{{user.id}}" method="post">
-   <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" name="email" value="{{user.Email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-   </div>
+{{#if alert}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+   <strong> {{alert}} </strong>
+   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   {{/if}}
+</div>
+<div class="container">
+   <form action="/edit/{{user.id}}" method="post">
+      <div class="mb-3">
+         <label for="exampleInputEmail1" class="form-label">Email address</label>
+         <input type="email" name="email" value="{{user.Email}}" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+      </div>
 
-   <div class="mb-3">
-      <label class="form-label">Fullname</label>
-      <input type="text" name="fname" value="{{user.Fullname}}" class="form-control">
-   </div>
+      <div class="mb-3">
+         <label class="form-label">Fullname</label>
+         <input type="text" name="fname" value="{{user.Fullname}}" class="form-control">
+      </div>
 
-   <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" name="password" value="{{user.Password}}" class="form-control">
-   </div>
+      <div class="mb-3">
+         <label for="exampleInputPassword1" class="form-label">Password</label>
+         <input type="password" name="password" value="{{user.Password}}" class="form-control">
+      </div>
 
-   <div class="mb-3">
-      <label class="form-label">Phone</label>
-      <input type="text" name="phone" value="{{user.Phone}}" class="form-control">
-   </div>
+      <div class="mb-3">
+         <label class="form-label">Phone</label>
+         <input type="text" name="phone" value="{{user.Phone}}" class="form-control">
+      </div>
 
-   <div class="mb-3">
-      <label class="form-label">Comment</label>
-      <input type="text" name="comment" value="{{user.comments}}" class="form-control">
-   </div>
+      <div class="mb-3">
+         <label class="form-label">Comment</label>
+         <input type="text" name="comment" value="{{user.comments}}" class="form-control">
+      </div>
+      <div class="container-fluid text-center">
+         <button type="submit" class="btn btn-primary ">Update</button>
+      </div>
 
-   <button type="submit" class="btn btn-primary text-center">Submit</button>
-</form>
+   </form>
+</div>
